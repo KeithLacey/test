@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is a powers page</h1>
+    <form class="form-horizontal" action='/register' method='post'>
+        {% csrf_token %}
+        <div class='form-group'>
+                <label for='power'>Powers:</label>
+                <!-- <input name='power' type='text' class='form-control' id='power'> -->
+        </div>
+        <!-- <input class="btn btn-success pull-right" type="submit" value="Register"> -->
+    </form>
+</body>
+</html>

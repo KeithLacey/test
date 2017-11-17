@@ -1,0 +1,28 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+
+#wrapper {
+    margin: auto 0px;
+    height: 1000px;
+    background-color: purple;
+    padding: 30px;
+}
+
+label {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+#errors {
+    text-decoration-color: red;
+    color: red;
+}
+
+.forms {
+    padding: 15px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    border: 2px solid black;
+    border-radius: 15px;
+}

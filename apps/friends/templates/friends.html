@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/friends.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id= wrapper>
+            <img src="/static/jla.jpg" alt="jla">
+        <div class='container'>
+            <div class='row'>
+                <div class='col-sm-6'>
+                    <h2>Welcome {{me.alias}}!</h2>
+                </div>
+                <div class='col-sm-1 col-sm-offset-4'>
+                    <h5><a href='/logout'>Logout</a></h5>
+                </div>
+            </div>
+            {% if friends%}
+                <h3>Your Friends:</h3>
+            {% else %}
+                <h3>You don't any Friends, you better create a <a href='/new'>ROBOT </a>!!:</h3>
+            {% endif %}
+            <div class='row'>
+                <div class='col-sm-7' id='friends_table'>
+                    <table class='table table-striped table-responsive'>
+                        <tr>
+                            <th>destination</th>
+                            <th>date</th>
+                        </tr>
+                            {% for friend in friends %}
+                            <tr>
+                                <td>{{friend.alias}}</td>
+                                <td>
+                                    <a href='/users/{{friend.id}}'><h4 class='inline'>View Profile</h4></a>
+                                    <a href='/users/remove/{{friend.id}}'><h4 class='inline'>Remove as Friend</h4></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <h3>Other Friends:</h3>
+            <div class='row'>
+                <div class='col-sm-7' id='user_table'>
+                    <table class='table table-striped table-responsive'>
+                        <tr>
+                            <th>destination</th>
+                            <th>Action</th>
+                        </tr>
+                            {% for user in users %}
+                            <tr>
+                                <td><a href='/users/{{user.id}}'>{{user.alias}}</a></td>
+                                <td>
+                                    <form action='/users/add/{{user.id}}' method='post'>
+                                        {% csrf_token %}
+                                        <input id='add' type='submit' value='Add as Friend'>
+                                    </form>
+                                    <a href= '/power'><button>Powers</button></a>
+                                    <a href= '/weakness'><button>Weakness</button></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                    </table>
+                    <br>
+                    <br>
+                    <a href='/new'><h2>ROBOT</h2></a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
